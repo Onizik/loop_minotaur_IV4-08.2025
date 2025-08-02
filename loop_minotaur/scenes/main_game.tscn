@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://26qhuoambmvv"]
+
+[ext_resource type="Texture2D" uid="uid://7e4br3vscwuj" path="res://assets/sprites/map/bg.png" id="1_72e8q"]
+[ext_resource type="PackedScene" uid="uid://mmcgu0jf0k74" path="res://scenes/gg.tscn" id="2_d2op2"]
+
+[node name="main_game" type="Node2D"]
+
+[node name="map" type="Sprite2D" parent="."]
+position = Vector2(931, 509)
+texture = ExtResource("1_72e8q")
+
+[node name="gg" parent="." instance=ExtResource("2_d2op2")]
