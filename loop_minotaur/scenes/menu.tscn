@@ -1,0 +1,69 @@
+[gd_scene load_steps=6 format=3 uid="uid://cx625ejgw0s4r"]
+
+[ext_resource type="Texture2D" uid="uid://dubx1fux1jk1v" path="res://assets/sprites/menu/bg.png" id="1_vjb58"]
+[ext_resource type="PackedScene" uid="uid://26qhuoambmvv" path="res://scenes/main_game.tscn" id="1_yqeox"]
+
+[sub_resource type="Animation" id="Animation_con2f"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_vjb58"]
+resource_name = "new_loop"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("main_game:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(222, -99), Vector2(1180, -633)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("main_game:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.3, 0.3), Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("menu_camera:enabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mhnvy"]
+_data = {
+&"RESET": SubResource("Animation_con2f"),
+&"new_loop": SubResource("Animation_vjb58")
+}
+
+[node name="menu" type="Node2D"]
+
+[node name="BG" type="Sprite2D" parent="."]
+texture = ExtResource("1_vjb58")
+
+[node name="main_game" parent="." instance=ExtResource("1_yqeox")]
+position = Vector2(222, -99)
+scale = Vector2(0.3, 0.3)
+
+[node name="menu_camera" type="Camera2D" parent="."]
+
+[node name="anime" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_mhnvy")
+}

@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="loop_minotaur"
-run/main_scene="uid://26qhuoambmvv"
+run/main_scene="uid://cx625ejgw0s4r"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 

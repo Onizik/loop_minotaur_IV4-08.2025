@@ -8,30 +8,33 @@
 [node name="main_game" type="Node2D"]
 script = ExtResource("1_0rdsr")
 
-[node name="map" parent="." instance=ExtResource("1_72e8q")]
+[node name="window" type="Node2D" parent="."]
 
-[node name="gg" parent="." instance=ExtResource("2_d2op2")]
+[node name="map" parent="window" instance=ExtResource("1_72e8q")]
+
+[node name="gg" parent="window" instance=ExtResource("2_d2op2")]
 position = Vector2(-1206, 626)
 
-[node name="watch" parent="." instance=ExtResource("3_d2op2")]
+[node name="biba" type="Timer" parent="window"]
+wait_time = 10.0
+one_shot = true
+
+[node name="items" type="Node2D" parent="window"]
+
+[node name="watch" parent="window/items" instance=ExtResource("3_d2op2")]
 position = Vector2(-1192, -500)
 scale = Vector2(0.4, 0.4)
 
-[node name="watch2" parent="." instance=ExtResource("3_d2op2")]
+[node name="watch2" parent="window/items" instance=ExtResource("3_d2op2")]
 position = Vector2(-995, 276)
 scale = Vector2(0.4, 0.4)
 
-[node name="watch3" parent="." instance=ExtResource("3_d2op2")]
+[node name="watch3" parent="window/items" instance=ExtResource("3_d2op2")]
 position = Vector2(-591, 618)
 scale = Vector2(0.4, 0.4)
 
-[node name="boot" parent="." instance=ExtResource("3_d2op2")]
+[node name="boot" parent="window/items" instance=ExtResource("3_d2op2")]
 position = Vector2(-727, -246)
 scale = Vector2(0.4, 0.4)
 
-[node name="biba" type="Timer" parent="."]
-wait_time = 10.0
-one_shot = true
-autostart = true
-
-[connection signal="timeout" from="biba" to="." method="_on_biba_timeout"]
+[connection signal="timeout" from="window/biba" to="." method="_on_biba_timeout"]
