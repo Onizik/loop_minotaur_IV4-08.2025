@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://bar745ujlrpw0"]
+
+[ext_resource type="Texture2D" uid="uid://7e4br3vscwuj" path="res://assets/sprites/map/bg.png" id="1_paxxb"]
+[ext_resource type="Texture2D" uid="uid://dh4aig23mscnj" path="res://assets/sprites/map/walls.png" id="2_gldc4"]
+
+[node name="map" type="Sprite2D"]
+texture = ExtResource("1_paxxb")
+
+[node name="wall" type="StaticBody2D" parent="."]
+
+[node name="walls" type="Sprite2D" parent="wall"]
+texture = ExtResource("2_gldc4")
+
+[node name="wall_collision" type="CollisionPolygon2D" parent="wall"]
+polygon = PackedVector2Array(-1245, 686, -527, 688, -526, -317, -449, -312, -450, 684, -41, 685, -42, 345, 47, 344, 46, 683, 1248, 685, 1278, 715, -1250, 719)
+
+[node name="wall_collision2" type="CollisionPolygon2D" parent="wall"]
+polygon = PackedVector2Array(-1250, 693, -1250, 539, -693, 533, -692, 170, -876, 167, -876, -42, -975, -39, -974, 169, -1142, 171, -1140, 367, -1051, 363, -1047, 219, -764, 219, -765, 457, -1248, 467, -1247, -146, -898, -151, -897, -237, -920, -241, -922, -579, -986, -579, -986, -247, -1066, -239, -1070, -378, -1146, -370, -1143, -248, -1248, -237, -1252, -566, -1117, -565, -1115, -694, -1114, -718, -1278, -718, -1280, 718, -1251, 721)
+
+[node name="wall_collision3" type="CollisionPolygon2D" parent="wall"]
+polygon = PackedVector2Array(-1119, -694, -44, -693, -42, 236, 45, 235, 42, -690, 1247, -690, 1252, 686, 1280, 717, 1279, -720, -1118, -720)

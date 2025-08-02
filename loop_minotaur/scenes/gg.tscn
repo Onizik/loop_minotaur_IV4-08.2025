@@ -10,6 +10,7 @@ size = Vector2(20, 45)
 script = ExtResource("1_3dobr")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.000146816, 8.74829e-05, 0.000207551, 1)
 position = Vector2(0.249999, 0)
 scale = Vector2(0.0325, 0.055)
 texture = ExtResource("2_3dobr")
@@ -19,10 +20,10 @@ shape = SubResource("RectangleShape2D_0oikb")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2, 2)
-limit_left = -960
-limit_top = -540
-limit_right = 960
-limit_bottom = 540
+limit_left = -1280
+limit_top = -720
+limit_right = 1280
+limit_bottom = 720
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
 drag_horizontal_offset = 0.2
