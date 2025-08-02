@@ -12,6 +12,6 @@ func _process(delta: float) -> void:
 
 
 func _on_static_body_2d_body_entered(body: Node2D) -> void:
-	if $AnimatedSprite2D.frame == 1:
+	if $AnimatedSprite2D.frame == 0:
 		$"/root/Global".SPEED +=200
 	self.hide()
