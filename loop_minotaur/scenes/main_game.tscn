@@ -1,11 +1,30 @@
-[gd_scene load_steps=3 format=3 uid="uid://26qhuoambmvv"]
+[gd_scene load_steps=5 format=3 uid="uid://26qhuoambmvv"]
 
+[ext_resource type="Script" uid="uid://cojyf504s8mjg" path="res://scripts/main_game.gd" id="1_0rdsr"]
 [ext_resource type="PackedScene" uid="uid://bar745ujlrpw0" path="res://scenes/map.tscn" id="1_72e8q"]
 [ext_resource type="PackedScene" uid="uid://mmcgu0jf0k74" path="res://scenes/gg.tscn" id="2_d2op2"]
+[ext_resource type="PackedScene" uid="uid://cbr50iq4e20ub" path="res://scenes/item.tscn" id="3_d2op2"]
 
 [node name="main_game" type="Node2D"]
+script = ExtResource("1_0rdsr")
 
 [node name="map" parent="." instance=ExtResource("1_72e8q")]
 
 [node name="gg" parent="." instance=ExtResource("2_d2op2")]
 position = Vector2(-1206, 626)
+
+[node name="watch" parent="." instance=ExtResource("3_d2op2")]
+position = Vector2(-1192, -500)
+scale = Vector2(0.4, 0.4)
+
+[node name="watch2" parent="." instance=ExtResource("3_d2op2")]
+position = Vector2(-995, 276)
+scale = Vector2(0.4, 0.4)
+
+[node name="watch3" parent="." instance=ExtResource("3_d2op2")]
+position = Vector2(-591, 618)
+scale = Vector2(0.4, 0.4)
+
+[node name="boot" parent="." instance=ExtResource("3_d2op2")]
+position = Vector2(-727, -246)
+scale = Vector2(0.4, 0.4)
