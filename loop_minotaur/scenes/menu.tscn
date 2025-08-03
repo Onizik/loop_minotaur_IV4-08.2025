@@ -21,7 +21,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(222, -99)]
+"values": [Vector2(3664, -1919)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -33,35 +33,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0.3, 0.3)]
-}
-
-[sub_resource type="Animation" id="Animation_vjb58"]
-resource_name = "new_loop"
-length = 2.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("main_game:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 2.26667),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(222, -99), Vector2(1920, -1082)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("main_game:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 2.26667),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(0.3, 0.3), Vector2(2, 2)]
+"values": [Vector2(2, 2)]
 }
 
 [sub_resource type="Animation" id="Animation_13sgg"]
@@ -90,6 +62,34 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(0.3, 0.3)]
+}
+
+[sub_resource type="Animation" id="Animation_vjb58"]
+resource_name = "new_loop"
+length = 2.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("main_game:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(194, -117), Vector2(3664, -1919)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("main_game:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.2, 0.2), Vector2(2, 2)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mhnvy"]
@@ -134,8 +134,8 @@ texture_normal = ExtResource("6_ufwb2")
 texture_hover = ExtResource("7_6cdou")
 
 [node name="main_game" parent="." instance=ExtResource("1_yqeox")]
-position = Vector2(222, -99)
-scale = Vector2(0.3, 0.3)
+position = Vector2(194, -117)
+scale = Vector2(0.2, 0.2)
 
 [connection signal="animation_finished" from="anime" to="." method="_on_anime_animation_finished"]
 [connection signal="pressed" from="play" to="." method="_on_play_pressed"]

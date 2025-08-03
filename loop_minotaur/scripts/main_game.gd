@@ -9,6 +9,7 @@ func _ready() -> void:
 	$window/items/boot/AnimatedSprite2D.frame = 5
 	$window/biba.wait_time = $"/root/Global".start_time
 	$"/root/Global".start = false
+	$window/gg/AnimatedSprite2D.play("idle")
 	
 	
 
@@ -17,7 +18,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	$window/gg/HUD/time.text = str(int($window/biba.time_left))
-	if $"/root/Global".end_anim:
+	if $"/root/Global".end_anim:                             
 		$window/gg/HUD.show()
 		$window/biba.start()
 		$"/root/Global".end_anim = false
@@ -26,5 +27,4 @@ func _process(delta: float) -> void:
 
 
 func _on_biba_timeout() -> void:
-	$root/menu/anime.play("end_loop")
 	get_tree().change_scene_to_file("res://scenes/menu.tscn")

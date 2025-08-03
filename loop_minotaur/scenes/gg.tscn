@@ -1,10 +1,60 @@
-[gd_scene load_steps=9 format=3 uid="uid://mmcgu0jf0k74"]
+[gd_scene load_steps=14 format=3 uid="uid://mmcgu0jf0k74"]
 
 [ext_resource type="Script" uid="uid://do54064n538gx" path="res://scripts/gg.gd" id="1_3dobr"]
-[ext_resource type="Texture2D" uid="uid://ba6celgtfra3q" path="res://assets/sprites/character/text.png" id="2_3dobr"]
+[ext_resource type="Texture2D" uid="uid://b5trw3b1j3dmr" path="res://assets/sprites/character/idle/Стоит один.png" id="2_lv4ge"]
+[ext_resource type="Texture2D" uid="uid://jmoj65buxyle" path="res://assets/sprites/character/idle/Стоит 2.png" id="3_3mjk6"]
+[ext_resource type="Texture2D" uid="uid://d2b61elp3v2yu" path="res://assets/sprites/character/run/Бег 2.png" id="4_5rcxk"]
+[ext_resource type="Texture2D" uid="uid://cdsxlc3uxavca" path="res://assets/sprites/character/run/Бег 3.png" id="5_1h1lu"]
+[ext_resource type="Texture2D" uid="uid://d2w6hki5wopry" path="res://assets/sprites/character/run/Бежит 1.png" id="6_n2dij"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6dljv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_lv4ge")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_lv4ge")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_lv4ge")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_3mjk6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_3mjk6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_lv4ge")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_lv4ge")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_5rcxk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_1h1lu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_n2dij")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_1h1lu")
+}],
+"loop": true,
+"name": &"run",
+"speed": 40.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0oikb"]
-size = Vector2(20, 45)
+size = Vector2(132, 206)
 
 [sub_resource type="LabelSettings" id="LabelSettings_3dobr"]
 font_size = 40
@@ -81,21 +131,21 @@ _data = {
 [node name="gg" type="CharacterBody2D"]
 script = ExtResource("1_3dobr")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(0.000146816, 8.74829e-05, 0.000207551, 1)
-position = Vector2(0.249999, 0)
-scale = Vector2(0.0325, 0.055)
-texture = ExtResource("2_3dobr")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_6dljv")
+animation = &"run"
+frame_progress = 0.555846
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2, 9)
 shape = SubResource("RectangleShape2D_0oikb")
 
 [node name="camera" type="Camera2D" parent="."]
 zoom = Vector2(2, 2)
-limit_left = -1280
-limit_top = -720
-limit_right = 1280
-limit_bottom = 720
+limit_left = -2152
+limit_top = -1147
+limit_right = 2152
+limit_bottom = 1147
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
 drag_horizontal_offset = 0.2
