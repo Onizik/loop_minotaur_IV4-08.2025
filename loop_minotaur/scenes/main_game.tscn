@@ -1,9 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://26qhuoambmvv"]
+[gd_scene load_steps=7 format=3 uid="uid://26qhuoambmvv"]
 
 [ext_resource type="Script" uid="uid://cojyf504s8mjg" path="res://scripts/main_game.gd" id="1_0rdsr"]
 [ext_resource type="PackedScene" uid="uid://bar745ujlrpw0" path="res://scenes/map.tscn" id="1_72e8q"]
 [ext_resource type="PackedScene" uid="uid://mmcgu0jf0k74" path="res://scenes/gg.tscn" id="2_d2op2"]
 [ext_resource type="PackedScene" uid="uid://cbr50iq4e20ub" path="res://scenes/item.tscn" id="3_d2op2"]
+[ext_resource type="Texture2D" uid="uid://cvqj567o86570" path="res://assets/sprites/item/final/door.png" id="5_ipu61"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ygxny"]
+size = Vector2(282, 133.5)
 
 [node name="main_game" type="Node2D"]
 script = ExtResource("1_0rdsr")
@@ -12,10 +16,6 @@ script = ExtResource("1_0rdsr")
 
 [node name="map" parent="window" instance=ExtResource("1_72e8q")]
 
-[node name="gg" parent="window" instance=ExtResource("2_d2op2")]
-position = Vector2(-2025, 976)
-scale = Vector2(0.6, 0.6)
-
 [node name="biba" type="Timer" parent="window"]
 wait_time = 10.0
 one_shot = true
@@ -23,19 +23,40 @@ one_shot = true
 [node name="items" type="Node2D" parent="window"]
 
 [node name="watch" parent="window/items" instance=ExtResource("3_d2op2")]
-position = Vector2(-1892, -118)
+position = Vector2(-1803, -85)
 scale = Vector2(0.4, 0.4)
 
 [node name="watch2" parent="window/items" instance=ExtResource("3_d2op2")]
-position = Vector2(-1335, 161)
+position = Vector2(-1604, 968)
 scale = Vector2(0.4, 0.4)
 
 [node name="watch3" parent="window/items" instance=ExtResource("3_d2op2")]
-position = Vector2(-1028, 990)
+position = Vector2(-1744, 964)
 scale = Vector2(0.4, 0.4)
 
-[node name="boot" parent="window/items" instance=ExtResource("3_d2op2")]
-position = Vector2(-1083, -943)
+[node name="watch4" parent="window/items" instance=ExtResource("3_d2op2")]
+position = Vector2(-464, 226)
 scale = Vector2(0.4, 0.4)
+
+[node name="lever" parent="window/items" instance=ExtResource("3_d2op2")]
+position = Vector2(-1479, 972)
+scale = Vector2(0.4, 0.4)
+
+[node name="gates" type="Node2D" parent="window"]
+
+[node name="gate1" type="Sprite2D" parent="window/gates"]
+position = Vector2(-1745, 749)
+scale = Vector2(0.796628, 1.01654)
+texture = ExtResource("5_ipu61")
+
+[node name="col" type="StaticBody2D" parent="window/gates/gate1"]
+
+[node name="rect" type="CollisionShape2D" parent="window/gates/gate1/col"]
+position = Vector2(7, -72.75)
+shape = SubResource("RectangleShape2D_ygxny")
+
+[node name="gg" parent="window" instance=ExtResource("2_d2op2")]
+position = Vector2(-1960, 961)
+scale = Vector2(0.6, 0.6)
 
 [connection signal="timeout" from="window/biba" to="." method="_on_biba_timeout"]

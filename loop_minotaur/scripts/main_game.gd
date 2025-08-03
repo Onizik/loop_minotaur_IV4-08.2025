@@ -3,10 +3,11 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	$window/items/watch/AnimatedSprite2D.frame = 0
-	$window/items/watch2/AnimatedSprite2D.frame = 0
-	$window/items/watch3/AnimatedSprite2D.frame = 0
-	$window/items/boot/AnimatedSprite2D.frame = 5
+	$window/items/watch/sprt.frame = 0
+	$window/items/watch2/sprt.frame = 0
+	$window/items/watch3/sprt.frame = 0
+	$window/items/watch4/sprt.frame = 0
+	$window/items/lever/sprt.frame = 4
 	$window/biba.wait_time = $"/root/Global".start_time
 	$"/root/Global".start = false
 	$window/gg/AnimatedSprite2D.play("idle")

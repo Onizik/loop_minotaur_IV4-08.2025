@@ -54,7 +54,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0oikb"]
-size = Vector2(132, 206)
+size = Vector2(171, 233)
 
 [sub_resource type="LabelSettings" id="LabelSettings_3dobr"]
 font_size = 40
@@ -134,10 +134,10 @@ script = ExtResource("1_3dobr")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_6dljv")
 animation = &"run"
-frame_progress = 0.555846
+frame_progress = 0.0770313
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(2, 9)
+position = Vector2(0.5, -4.5)
 shape = SubResource("RectangleShape2D_0oikb")
 
 [node name="camera" type="Camera2D" parent="."]

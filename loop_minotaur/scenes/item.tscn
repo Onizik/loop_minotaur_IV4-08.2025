@@ -1,10 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://cbr50iq4e20ub"]
+[gd_scene load_steps=10 format=3 uid="uid://cbr50iq4e20ub"]
 
-[ext_resource type="Script" uid="uid://d3udkakg1j6gu" path="res://scripts/item.gd" id="1_d265e"]
 [ext_resource type="Texture2D" uid="uid://cuisinghynl0s" path="res://assets/sprites/item/final/Часы.png" id="2_ro5b8"]
 [ext_resource type="Texture2D" uid="uid://cfl0vr23j3hdl" path="res://assets/sprites/item/final/Шлем.png" id="3_d265e"]
 [ext_resource type="Texture2D" uid="uid://d11oywtbivjj1" path="res://assets/sprites/item/final/Шлепки.png" id="4_5vp5n"]
 [ext_resource type="Texture2D" uid="uid://7ff4a6nxulvd" path="res://assets/sprites/item/final/Посох.png" id="5_c4387"]
+[ext_resource type="Texture2D" uid="uid://c3fe8o4npcb4s" path="res://assets/sprites/item/final/lever_on.png" id="6_5vp5n"]
+[ext_resource type="Script" uid="uid://b1grvl8afa2kg" path="res://scripts/sprt.gd" id="7_5vp5n"]
+[ext_resource type="Texture2D" uid="uid://bjxw3c3kddju5" path="res://assets/sprites/item/final/lever_off.png" id="7_c4387"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_xr48l"]
 animations = [{
@@ -20,6 +22,12 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("5_c4387")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_5vp5n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_c4387")
 }],
 "loop": true,
 "name": &"default",
@@ -30,12 +38,11 @@ animations = [{
 size = Vector2(199, 199)
 
 [node name="item" type="Node2D"]
-script = ExtResource("1_d265e")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="sprt" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_xr48l")
-frame = 3
-frame_progress = 0.063659
+frame_progress = 0.941976
+script = ExtResource("7_5vp5n")
 
 [node name="StaticBody2D" type="Area2D" parent="."]
 
@@ -43,4 +50,4 @@ frame_progress = 0.063659
 position = Vector2(3.5, -0.5)
 shape = SubResource("RectangleShape2D_5vp5n")
 
-[connection signal="body_entered" from="StaticBody2D" to="." method="_on_static_body_2d_body_entered"]
+[connection signal="body_entered" from="StaticBody2D" to="sprt" method="_on_static_body_2d_body_entered"]

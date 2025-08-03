@@ -1,34 +1,79 @@
 [gd_scene load_steps=4 format=3 uid="uid://bar745ujlrpw0"]
 
-[ext_resource type="Texture2D" uid="uid://dh4aig23mscnj" path="res://assets/sprites/map/walls.png" id="2_gldc4"]
-[ext_resource type="Texture2D" uid="uid://cx5ytly3ss306" path="res://assets/sprites/map/first_floor.png" id="3_2klcf"]
+[ext_resource type="Texture2D" uid="uid://dxkr8cl4ww4cw" path="res://assets/sprites/map/final/Новый фон первый.png" id="1_0cso3"]
+[ext_resource type="Texture2D" uid="uid://ftg6sljwm3lj" path="res://assets/sprites/map/final/экспорт.png" id="3_2klcf"]
 [ext_resource type="Texture2D" uid="uid://ct7y1k1c4foo" path="res://assets/sprites/map/second_floor.png" id="4_2lpho"]
 
-[node name="map" type="Sprite2D"]
-texture = ExtResource("4_2lpho")
+[node name="map" type="Node2D"]
 
 [node name="first" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(-974, 11)
-texture = ExtResource("3_2klcf")
+clip_children = 2
+position = Vector2(26, 1)
+texture = ExtResource("1_0cso3")
 
-[node name="second" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(2050, 19)
+[node name="second" type="Sprite2D" parent="first"]
+position = Vector2(2475, 3)
 texture = ExtResource("4_2lpho")
 
 [node name="walls" type="Sprite2D" parent="."]
-position = Vector2(-3, -2)
-scale = Vector2(1.68203, 1.58889)
-texture = ExtResource("2_gldc4")
+visibility_layer = 2
+z_index = 1
+position = Vector2(62, 8)
+texture = ExtResource("3_2klcf")
 
 [node name="wall" type="StaticBody2D" parent="walls"]
 
-[node name="wall_collision" type="CollisionPolygon2D" parent="walls/wall"]
-polygon = PackedVector2Array(-1245, 686, -527, 688, -526, -317, -449, -312, -450, 684, -41, 685, -42, 345, 47, 344, 46, 683, 1248, 685, 1278, 715, -1250, 719)
+[node name="1" type="CollisionPolygon2D" parent="walls/wall"]
+polygon = PackedVector2Array(-2127, -951, -2131, 1046, -2133, 1144, -2185, 1142, -2183, -1148, 2119, -1147, 2125, -947)
 
-[node name="wall_collision2" type="CollisionPolygon2D" parent="walls/wall"]
-polygon = PackedVector2Array(-1250, 693, -1250, 539, -693, 533, -692, 170, -876, 167, -876, -42, -975, -39, -974, 169, -1142, 171, -1140, 367, -1051, 363, -1047, 219, -764, 219, -765, 457, -1248, 467, -1247, -146, -898, -151, -897, -237, -920, -241, -922, -579, -986, -579, -986, -247, -1066, -239, -1070, -378, -1146, -370, -1143, -248, -1248, -237, -1252, -566, -1117, -565, -1115, -694, -1114, -718, -1278, -718, -1280, 718, -1251, 721)
+[node name="15" type="CollisionPolygon2D" parent="walls/wall"]
+polygon = PackedVector2Array(369, 570, 642, 573, 645, 351, 857, 355, 862, 571, 911, 576, 916, 201, 1117, 205, 1119, 571, 1174, 570, 1172, 59, 1382, 60, 1385, 574, 1438, 576, 1435, 30, 1119, 31, 1119, 170, 912, 175, 912, -134, 864, -136, 864, 326, 645, 322, 642, -140, 591, -138, 593, 543, 368, 542)
 
-[node name="wall_collision3" type="CollisionPolygon2D" parent="walls/wall"]
-polygon = PackedVector2Array(-1119, -694, -44, -693, -42, 236, 45, 235, 42, -690, 1247, -690, 1252, 686, 1280, 717, 1279, -720, -1118, -720)
+[node name="14" type="CollisionPolygon2D" parent="walls/wall"]
+polygon = PackedVector2Array(367, 850, 1800, 852, 1798, 809, 369, 812)
+
+[node name="16" type="CollisionPolygon2D" parent="walls/wall"]
+polygon = PackedVector2Array(370, -575, 948, -573, 948, -618, 367, -614)
+
+[node name="13" type="CollisionPolygon2D" parent="walls/wall"]
+polygon = PackedVector2Array(-1297, -947, -1294, -784, -1010, -785, -1011, -806, -1279, -807, -1276, -951)
+
+[node name="2" type="CollisionPolygon2D" parent="walls/wall"]
+polygon = PackedVector2Array(-2122, 1048, 2073, 1043, 2083, -562, 2136, -565, 2129, 1154, -2130, 1144)
+
+[node name="17" type="CollisionPolygon2D" parent="walls/wall"]
+polygon = PackedVector2Array(596, -284, 1795, -287, 1795, -428, 1744, -427, 1741, -948, 1687, -949, 1687, -605, 1169, -603, 1168, -573, 1687, -572, 1688, -311, 600, -322)
+
+[node name="12" type="CollisionPolygon2D" parent="walls/wall"]
+polygon = PackedVector2Array(-1004, -381, -435, -377, -436, -848, -484, -849, -478, -402, -1004, -399)
+
+[node name="9" type="CollisionPolygon2D" parent="walls/wall"]
+polygon = PackedVector2Array(-2129, -382, -1467, -385, -1473, -769, -1987, -764, -1987, -721, -1524, -720, -1521, -420, -2129, -405)
+
+[node name="11" type="CollisionPolygon2D" parent="walls/wall"]
+polygon = PackedVector2Array(-763, -951, -760, -665, -712, -669, -708, -949)
+
+[node name="18" type="CollisionPolygon2D" parent="walls/wall"]
+polygon = PackedVector2Array(2074, 57, 1780, 59, 1779, 574, 1726, 572, 1725, 30, 2076, 31)
+
+[node name="3" type="CollisionPolygon2D" parent="walls/wall"]
+polygon = PackedVector2Array(367, -614, 294, -614, 290, 86, -9, 84, -68, 82, -69, 427, -347, 428, -351, 477, -78, 482, -70, 858, -20, 855, -14, 138, 289, 140, 284, 1076, 364, 1072)
+
+[node name="4" type="CollisionPolygon2D" parent="walls/wall"]
+polygon = PackedVector2Array(-1879, 859, -1878, 810, -2128, 806, -2131, 864)
+
+[node name="5" type="CollisionPolygon2D" parent="walls/wall"]
+polygon = PackedVector2Array(-1465, 849, -1698, 850, -1694, 813, -1469, 819, -1466, 363, -866, 364, -865, 527, -916, 526, -918, 385, -1417, 391, -1416, 1060, -1470, 1059)
+
+[node name="6" type="CollisionPolygon2D" parent="walls/wall"]
+polygon = PackedVector2Array(-1723, 708, -1695, 717, -1695, 843, -1670, 841, -1676, 718, -1673, 143, -666, 143, -662, 811, -664, 822, -1072, 817, -1077, 581, -1129, 575, -1119, 850, -288, 855, -289, 822, -611, 812, -615, 144, -302, 139, -302, 101, -1722, 113, -1722, 542, -1956, 544, -1956, 576, -1721, 580)
+
+[node name="7" type="CollisionPolygon2D" parent="walls/wall"]
+polygon = PackedVector2Array(-1953, 284, -1905, 285, -1905, -142, -859, -143, -861, -171, -1954, -170)
+
+[node name="10" type="CollisionPolygon2D" parent="walls/wall"]
+polygon = PackedVector2Array(-1250, -171, -1250, -537, -1022, -534, -1022, -559, -1295, -551, -1292, -176)
+
+[node name="8" type="CollisionPolygon2D" parent="walls/wall"]
+position = Vector2(20, -2)
+polygon = PackedVector2Array(-576, -142, -3, -146, -3, -947, -57, -944, -52, -193, -256, -187, -266, -699, -316, -701, -308, -190, -573, -194)
