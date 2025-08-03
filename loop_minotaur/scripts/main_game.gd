@@ -10,12 +10,17 @@ func _ready() -> void:
 	$window/biba.wait_time = $"/root/Global".start_time
 	$"/root/Global".start = false
 	
+	
 
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	$window/gg/HUD/time.text = str(int($window/biba.time_left))
+	if $"/root/Global".end_anim:
+		$window/gg/HUD.show()
+		$window/biba.start()
+		$"/root/Global".end_anim = false
 		
 	
 

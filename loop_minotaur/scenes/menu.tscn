@@ -1,14 +1,20 @@
-[gd_scene load_steps=6 format=3 uid="uid://cx625ejgw0s4r"]
+[gd_scene load_steps=12 format=3 uid="uid://cx625ejgw0s4r"]
 
+[ext_resource type="Script" uid="uid://cg3g5f035k5u1" path="res://scripts/menu.gd" id="1_13sgg"]
 [ext_resource type="Texture2D" uid="uid://dubx1fux1jk1v" path="res://assets/sprites/menu/bg.png" id="1_vjb58"]
 [ext_resource type="PackedScene" uid="uid://26qhuoambmvv" path="res://scenes/main_game.tscn" id="1_yqeox"]
+[ext_resource type="Texture2D" uid="uid://boqg64qw04usg" path="res://assets/sprites/menu/name.png" id="3_i6lef"]
+[ext_resource type="Texture2D" uid="uid://cpwqynub34vs3" path="res://assets/sprites/menu/play.png" id="4_70i5f"]
+[ext_resource type="Texture2D" uid="uid://cjkkac41x8b45" path="res://assets/sprites/menu/play_hover.png" id="5_mj5lg"]
+[ext_resource type="Texture2D" uid="uid://g47hjm0bfqat" path="res://assets/sprites/menu/exit.png" id="6_ufwb2"]
+[ext_resource type="Texture2D" uid="uid://k5d4oy3ff8jv" path="res://assets/sprites/menu/exit_hover.png" id="7_6cdou"]
 
 [sub_resource type="Animation" id="Animation_con2f"]
 length = 0.001
 
 [sub_resource type="Animation" id="Animation_vjb58"]
 resource_name = "new_loop"
-length = 5.0
+length = 2.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -16,10 +22,10 @@ tracks/0/path = NodePath("main_game:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 5),
+"times": PackedFloat32Array(0, 2.26667),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(222, -99), Vector2(1180, -633)]
+"values": [Vector2(222, -99), Vector2(1920, -1082)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -28,22 +34,10 @@ tracks/1/path = NodePath("main_game:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 5),
+"times": PackedFloat32Array(0, 2.26667),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0.3, 0.3), Vector2(1, 1)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("menu_camera:enabled")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
+"values": [Vector2(0.3, 0.3), Vector2(2, 2)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mhnvy"]
@@ -53,17 +47,43 @@ _data = {
 }
 
 [node name="menu" type="Node2D"]
+script = ExtResource("1_13sgg")
 
 [node name="BG" type="Sprite2D" parent="."]
 texture = ExtResource("1_vjb58")
+
+[node name="menu_camera" type="Camera2D" parent="."]
+
+[node name="anime" type="AnimationPlayer" parent="."]
+reset_on_save = false
+libraries = {
+&"": SubResource("AnimationLibrary_mhnvy")
+}
+
+[node name="name" type="Sprite2D" parent="."]
+position = Vector2(-425, -265)
+texture = ExtResource("3_i6lef")
+
+[node name="play" type="TextureButton" parent="."]
+offset_left = 205.0
+offset_top = 190.0
+offset_right = 398.0
+offset_bottom = 271.0
+texture_normal = ExtResource("4_70i5f")
+texture_hover = ExtResource("5_mj5lg")
+
+[node name="exit" type="TextureButton" parent="."]
+offset_left = 418.0
+offset_top = 193.0
+offset_right = 611.0
+offset_bottom = 274.0
+texture_normal = ExtResource("6_ufwb2")
+texture_hover = ExtResource("7_6cdou")
 
 [node name="main_game" parent="." instance=ExtResource("1_yqeox")]
 position = Vector2(222, -99)
 scale = Vector2(0.3, 0.3)
 
-[node name="menu_camera" type="Camera2D" parent="."]
-
-[node name="anime" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_mhnvy")
-}
+[connection signal="animation_finished" from="anime" to="." method="_on_anime_animation_finished"]
+[connection signal="pressed" from="play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="exit" to="." method="_on_exit_pressed"]

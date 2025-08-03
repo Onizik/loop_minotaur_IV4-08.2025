@@ -12,8 +12,20 @@ func _process(delta: float) -> void:
 
 
 func _on_play_pressed() -> void:
-	pass # Replace with function body.
+	$anime.play("new_loop")
 
 
 func _on_exit_pressed() -> void:
-	pass # Replace with function body.
+	get_tree().quit()
+	
+
+
+func _on_anime_animation_finished(new_loop) -> void:
+	$menu_camera.enabled = false
+	$main_game/window/gg/camera.enabled = true
+	$"/root/Global".end_anim = true
+
+	
+	get_tree().change_scene_to_file("res://scenes/main_game.tscn")
+	
+	
